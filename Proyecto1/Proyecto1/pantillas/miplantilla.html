@@ -1,0 +1,41 @@
+<html>
+    <body>
+
+        {% include 'superior/barra.html' %}
+
+        <h1>
+            Hola alumnos, esta es nuestra primera plantilla 
+        </h1>
+
+        {# no temas (comentario de una linea) #}
+
+        {% comment %} esta parte es puro comentario
+            de varias lineas
+        {% endcomment %}
+        
+        {% if nombre_persona == 'profesor Daniel' %}
+        
+        <p>El curso lo imparte el profesor titular</p>
+
+        {% else %}
+
+        <p>El curso lo imparte el profesor suplente</p>
+
+        {% endif %}
+
+        <p>el nombre del profesor es: {{nombre_persona|lower}} {{apellido_persona.upper}}</p>
+        <p>estamos viendo el tema de las plantillas a dia {{momento_actual}}</p>
+        <p><strong>temas del curso:</strong></p>
+        <p>
+            <ul>
+            {% if temas %}
+                {% for elTema in temas %}
+                    <li>{{elTema}}</li>
+                {% endfor %}  
+            {% else %}
+                <p>no hay elementos que mostrar</p>
+            {% endif %}
+            </ul> 
+        </p>
+    </body>
+</html>
